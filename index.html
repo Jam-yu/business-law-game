@@ -28,40 +28,35 @@ background:#31384a;
 margin:20px;
 padding:20px;
 border-radius:12px;
+text-align:left;
+line-height:1.6;
 }
 
 button{
-
 padding:12px 18px;
-
 margin:8px;
-
 font-size:16px;
-
 border:none;
-
 border-radius:8px;
-
 cursor:pointer;
-
 }
 
 h1{
-
-color:#79d6ff;
-
+color:#7fd8ff;
+text-align:center;
 }
 
 h2{
-
-color:#9aeaff;
-
+color:#9ce8ff;
 }
 
 .area{
+color:#ffd56b;
+font-weight:bold;
+}
 
-color:#ffd56f;
-
+.center{
+text-align:center;
 }
 
 </style>
@@ -74,7 +69,13 @@ color:#ffd56f;
 
 <h1>Business Law Defender</h1>
 
-<p>Learn → Apply → Assess</p>
+<div class="center">
+
+<p>
+
+Learn → Apply → Assess
+
+</p>
 
 <h2 id="score">
 
@@ -82,31 +83,21 @@ Score: 0
 
 </h2>
 
-<div class="card">
+</div>
 
-<button onclick="database()">
-Law Database
-</button>
+<div class="card center">
 
-<button onclick="historyPage()">
-History Timeline
-</button>
+<button onclick="database()">Law Database</button>
 
-<button onclick="detailedLaws()">
-Detailed Laws
-</button>
+<button onclick="historyPage()">History Timeline</button>
 
-<button onclick="updates()">
-Legal Updates
-</button>
+<button onclick="detailedLaws()">Detailed Laws</button>
 
-<button onclick="startCases()">
-Case Investigation
-</button>
+<button onclick="updates()">Legal Updates</button>
 
-<button onclick="finalAssessment()">
-Final Assessment
-</button>
+<button onclick="startCases()">Case Investigation</button>
+
+<button onclick="finalAssessment()">Final Assessment</button>
 
 </div>
 
@@ -114,7 +105,9 @@ Final Assessment
 
 <div class="card">
 
-Welcome Legal Investigator
+Welcome Legal Investigator.
+
+Choose a module to begin learning UK Business Law.
 
 </div>
 
@@ -134,21 +127,23 @@ area:"Consumer Law",
 
 name:"Consumer Rights Act 2015",
 
-history:
+history:"Consumer protection rules were previously spread across different laws such as the Sale of Goods Act 1979. This caused confusion for consumers and businesses. The Consumer Rights Act 2015 simplified and combined these protections.",
 
-"Created to simplify fragmented consumer protections and combine earlier legislation into one framework.",
+purpose:"Protect consumers when purchasing goods, services and digital content.",
 
 points:[
 
-"satisfactory quality",
+"Goods must be satisfactory quality",
 
-"fit for purpose",
+"Goods must be fit for purpose",
 
-"as described",
+"Goods must match description",
 
-"repair replacement refund rights"
+"Consumers have rights to repair replacement or refund"
 
-]
+],
+
+impact:"Businesses must ensure products meet legal standards or face complaints and legal action."
 
 },
 
@@ -158,21 +153,23 @@ area:"Consumer Law",
 
 name:"Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013",
 
-history:
+history:"Growth in e-commerce increased concerns regarding online purchases and hidden charges, leading to stronger distance selling protections.",
 
-"Created to improve online and distance selling protections.",
+purpose:"Protect customers buying online or remotely.",
 
 points:[
 
-"cancellation rights",
+"14-day cancellation period",
 
-"distance selling protection",
+"Businesses must provide clear information",
 
-"transparent charges",
+"Protection against hidden charges",
 
-"clear information"
+"Distance selling rights"
 
-]
+],
+
+impact:"Online businesses must communicate information clearly."
 
 },
 
@@ -182,21 +179,23 @@ area:"GDPR",
 
 name:"UK GDPR",
 
-history:
+history:"Rapid growth of digital business increased privacy risks. GDPR was retained after Brexit to continue protecting personal data.",
 
-"Introduced after increasing concerns over digital privacy and retained after Brexit.",
+purpose:"Protect personal information and control how organisations process data.",
 
 points:[
 
-"lawful processing",
+"Lawful processing",
 
-"consent",
+"Consent requirements",
 
-"access rights",
+"Data minimisation",
 
-"data minimisation"
+"Access rights"
 
-]
+],
+
+impact:"Organisations face penalties if data is mishandled."
 
 },
 
@@ -206,21 +205,23 @@ area:"GDPR",
 
 name:"Data Protection Act 2018",
 
-history:
+history:"Created to implement GDPR within UK law and strengthen privacy protections.",
 
-"Introduced to support GDPR implementation within UK law.",
+purpose:"Provide UK-specific rules supporting GDPR.",
 
 points:[
 
-"privacy protections",
+"Privacy protection",
 
-"enforcement rules",
+"Data processing rules",
 
-"data rights",
+"Enforcement powers",
 
-"processing requirements"
+"Individual rights"
 
-]
+],
+
+impact:"Supports investigations and penalties."
 
 },
 
@@ -230,63 +231,21 @@ area:"Employment Law",
 
 name:"Employment Rights Act 1996",
 
-history:
+history:"Introduced to improve employee protection and standardise workplace rights.",
 
-"Developed to strengthen employee protections and workplace rights.",
-
-points:[
-
-"unfair dismissal rights",
-
-"employment contracts",
-
-"redundancy rights"
-
-]
-
-},
-
-{
-
-area:"Employment Law",
-
-name:"Equality Act 2010",
-
-history:
-
-"Combined older discrimination laws into one framework.",
+purpose:"Protect workers during employment.",
 
 points:[
 
-"anti discrimination",
+"Unfair dismissal rights",
 
-"equal treatment",
+"Contracts",
 
-"protected characteristics"
+"Redundancy protection"
 
-]
+],
 
-},
-
-{
-
-area:"Employment Law",
-
-name:"National Minimum Wage Act 1998",
-
-history:
-
-"Introduced minimum wage protections for workers.",
-
-points:[
-
-"minimum pay rights",
-
-"employer obligations",
-
-"worker protection"
-
-]
+impact:"Employers must follow fair procedures."
 
 }
 
@@ -302,23 +261,25 @@ html+=`
 
 <div class='card'>
 
-<div class='area'>
+<div class='area'>${l.area}</div>
 
-${l.area}
+<h2>${l.name}</h2>
 
-</div>
+<b>Purpose</b><br>
 
-<h2>
-
-${l.name}
-
-</h2>
-
-<b>Key Points</b>
+${l.purpose}
 
 <br><br>
 
+<b>Key Points</b><br>
+
 ${l.points.join("<br>")}
+
+<br><br>
+
+<b>Business Impact</b><br>
+
+${l.impact}
 
 </div>
 
@@ -340,11 +301,7 @@ html+=`
 
 <div class='card'>
 
-<h2>
-
-${l.name}
-
-</h2>
+<h2>${l.name}</h2>
 
 ${l.history}
 
@@ -364,29 +321,23 @@ document.getElementById("content").innerHTML=`
 
 <div class='card'>
 
-<h2>
-
-Consumer Rights Act 2015
-
-</h2>
+<h2>Consumer Rights Act 2015</h2>
 
 Purpose:
 
-Protect consumers buying goods and services.
+Protect consumers purchasing goods services and digital products.
 
 <br><br>
 
-Rights:
+This legislation gives consumers legal rights when products are faulty or misleading.
 
-<br>
+<br><br>
+
+Consumer Rights Include:
 
 • satisfactory quality
 
-<br>
-
 • fit for purpose
-
-<br>
 
 • as described
 
@@ -394,31 +345,33 @@ Rights:
 
 Remedies:
 
-repair
+• repair
 
-replacement
+• replacement
 
-refund
+• refund
+
+<br><br>
+
+Business Impact:
+
+Businesses must improve quality control and customer service.
 
 <br><br>
 
 Example:
 
-Customer buys laptop.
+A customer buys a laptop.
 
-Laptop breaks after two days.
+The laptop fails after 2 days.
 
-Consumer may request remedy.
+Consumer can request remedy.
 
 </div>
 
 <div class='card'>
 
-<h2>
-
-Consumer Contracts Regulations 2013
-
-</h2>
+<h2>Consumer Contracts Regulations 2013</h2>
 
 Purpose:
 
@@ -426,33 +379,35 @@ Protect online consumers.
 
 <br><br>
 
-Rules:
+The law became important because online shopping increased rapidly.
 
-<br>
+<br><br>
 
-• cancellation rights
+Rights:
 
-<br>
+• 14-day cancellation period
 
-• clear information
+• clear information requirements
 
-<br>
+• transparent pricing
 
-• transparent charges
+• hidden charge protection
 
-<br>
+<br><br>
 
-• distance selling protection
+Business Impact:
+
+Businesses must explain terms clearly.
 
 <br><br>
 
 Example:
 
-Customer buys online.
+Customer buys headphones online.
 
-Changes mind shortly after purchase.
+Changes mind within cancellation period.
 
-Cancellation rights may apply.
+Customer may cancel purchase.
 
 </div>
 
@@ -466,47 +421,37 @@ document.getElementById("content").innerHTML=`
 
 <div class='card'>
 
-<h2>
-
-Pending Changes / Reliability
-
-</h2>
+<h2>Pending Changes and Reliability</h2>
 
 Consumer Law:
-
-No major legislative changes identified.
-
-<br><br>
-
-GDPR:
 
 Guidance reviewed regularly.
 
 <br><br>
 
+GDPR:
+
+Privacy guidance evolves with digital risks.
+
+<br><br>
+
 Employment:
 
-Minimum wage guidance updated regularly.
+Minimum wage guidance updated frequently.
 
 <br><br>
 
-How Checked:
+How Information Was Checked:
 
-<br><br>
-
-1. Checked UK government legislation database
-
-<br>
+1. Checked legislation.gov.uk
 
 2. Compared official guidance
 
-<br>
-
-3. Verified publication dates
-
-<br>
+3. Reviewed publication dates
 
 4. Compared multiple sources
+
+5. Used secondary sources only for support
 
 </div>
 
@@ -520,53 +465,19 @@ const cases=[
 
 q:"Laptop breaks after 2 days.",
 
-options:[
+answer:"Consumer Rights Act 2015 applies because faulty goods may qualify for repair replacement or refund.",
 
-"Ignore issue",
-
-"Repair replacement refund",
-
-"Throw away"
-
-],
-
-correct:1
+correct:"Repair Replacement Refund"
 
 },
 
 {
 
-q:"Customer wants to cancel online purchase.",
+q:"Customer changes mind after online purchase.",
 
-options:[
+answer:"Consumer Contracts Regulations may allow cancellation rights.",
 
-"No rights",
-
-"Cancellation rights may apply",
-
-"Employment law"
-
-],
-
-correct:1
-
-},
-
-{
-
-q:"Company leaked customer emails.",
-
-options:[
-
-"Data issue",
-
-"No problem",
-
-"Normal"
-
-],
-
-correct:0
+correct:"Cancellation Rights"
 
 }
 
@@ -588,15 +499,7 @@ if(current>=cases.length){
 
 document.getElementById("content").innerHTML=
 
-`
-
-<div class='card'>
-
-All Cases Complete
-
-</div>
-
-`;
+"<div class='card'>All Cases Completed</div>";
 
 return;
 
@@ -604,57 +507,29 @@ return;
 
 let c=cases[current];
 
-let html=
+document.getElementById("content").innerHTML=
 
 `
 
 <div class='card'>
 
-<h2>
+<h2>${c.q}</h2>
 
-${c.q}
+<button onclick="solve()">Show Answer</button>
 
-</h2>
-
-`;
-
-c.options.forEach((x,i)=>{
-
-html+=`
-
-<button onclick="answer(${i})">
-
-${x}
-
-</button>
+</div>
 
 `;
-
-});
-
-html+="</div>";
-
-document.getElementById("content").innerHTML=html;
 
 }
 
-function answer(choice){
-
-if(choice===cases[current].correct){
+function solve(){
 
 score+=10;
 
-alert("Correct");
+alert(cases[current].answer);
 
-}else{
-
-alert("Incorrect");
-
-}
-
-document.getElementById("score").innerHTML=
-
-"Score: "+score;
+document.getElementById("score").innerHTML="Score: "+score;
 
 current++;
 
@@ -664,57 +539,21 @@ loadCase();
 
 function finalAssessment(){
 
-let rank="Beginner";
-
-if(score>=20){
-
-rank="Legal Advisor";
-
-}
-
-if(score>=30){
-
-rank="Legal Expert";
-
-}
-
 document.getElementById("content").innerHTML=
 
 `
 
 <div class='card'>
 
-<h1>
+<h1>Assessment Complete</h1>
 
-Final Assessment
-
-</h1>
-
-Score:
+Final Score:
 
 ${score}
 
 <br><br>
 
-Rank:
-
-${rank}
-
-<br><br>
-
-Evaluates:
-
-<br>
-
-✓ legislation knowledge
-
-<br>
-
-✓ historical understanding
-
-<br>
-
-✓ legal application
+You have completed learning legislation history application and case analysis.
 
 </div>
 
